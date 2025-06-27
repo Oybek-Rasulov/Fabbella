@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import supabase from '../../../services/supabase';
-import assets from '../../../Services/assets';
 
 export default function AdminLogin() {
     const navigate = useNavigate();
