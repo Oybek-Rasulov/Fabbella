@@ -13,7 +13,7 @@ export default function Item({id, name, images, description, rate, price, discou
                     <p className='item-title-content'>{description}</p>
                     <Star starNum={rate} />
                     <del className='delete-price'>{new Intl.NumberFormat('ru-RU').format(price)}</del>
-                    <p className='price'>{new Intl.NumberFormat('ru-RU').format(discount)} so'm</p>
+                    <p className='price'>{new Intl.NumberFormat('ru-RU').format(Number(discount) || 0)} so'm</p>
                     <button className='btn-link'> Tanlash <img src={ assets.bagOrder } alt="Bag icon" /> </button>
                 </div>
             </div>
