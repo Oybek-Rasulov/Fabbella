@@ -63,47 +63,48 @@ const router = createBrowserRouter([
       },
       {
         path: "/adminboard",
-        element: <PrivateRoute>
+        element: 
+        // <PrivateRoute>
             <OrdersSearchProvider>
               <ProductsSearchProvider>
                 <AdminLayout />
               </ProductsSearchProvider>
-            </OrdersSearchProvider>
-        </PrivateRoute>,
+            </OrdersSearchProvider>,
+        // </PrivateRoute>,
         errorElement: <Error />,
         children: [
           {
-            path: "/main",
+            path: "main",
             element: (
                 <Admin />
             ),
           },
           {
-            path: "/products",
+            path: "products",
             element: (
                 <AdminProducts />
             ),
           },
           {
-            path: "/products/:id",
+            path: "products/:id",
             element: (
                 <ProductPage />
             ),
           },
           {
-            path: "/add",
+            path: "add",
             element: (
                 <AdminAdd />
             ),
           },
           {
-            path: "/orders",
+            path: "orders",
             element: (
                 <AdminOrders />
             ),
           },
           {
-            path: "/order/:id",
+            path: "order/:id",
             element: (
                 <AdminOrder />
             ),
