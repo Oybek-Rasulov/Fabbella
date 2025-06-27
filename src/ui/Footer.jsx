@@ -21,7 +21,7 @@ export default function Footer() {
 
             <div className='footer-about'>
                 <h1 className='footer-title'>Biz haqimizda</h1>
-                <p>Fabbella ozbekistondagi ayollar hamda qizlar uchun online dokon bolib siz unda ozinggizga yoqqan mahsulotlarni online tarzda xarid qilishingiz mumkin. Yetkazib berish xizmati bizda har doim mavjud 😊❤️ </p>
+                <p>Fabbella ozbekistondagi ayollar hamda qizlar uchun online do'/kon bolib siz unda <Link to="/adminboard/login"> ozinggizga </Link> yoqqan mahsulotlarni online tarzda xarid qilishingiz mumkin. Yetkazib berish xizmati bizda har doim mavjud 😊❤️ </p>
                 <div className='social-container'>
                     <Link to="https://www.instagram.com/fabbella_uz">
                         <img src={assets.instagram} alt="Instagram" />
