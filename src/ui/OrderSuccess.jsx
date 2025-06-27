@@ -1,7 +1,7 @@
 import assets from "../services/assets";
 import { Link } from "react-router-dom";
 
-export default function Orders() {
+export default function OrderSuccess() {
 
     return (
         <>
