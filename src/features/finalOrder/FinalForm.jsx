@@ -40,36 +40,37 @@ export default function FinalForm() {
             console.log(orderData);
             localStorage.setItem('orders', JSON.stringify([]));
             reset();
+            window.location.href = `/orderSuccess`
           
-            try {
-              let response;
+            // try {
+            //   let response;
           
-              if (isPayClicked === "payme") {
-                response = await axios.post("http://localhost:5000/api/payme/create", {
-                  amount: orderData.total_price,
-                  orderId: orderData.id,
-                });
-                window.location.href = response.data.invoiceUrl;
+            //   if (isPayClicked === "payme") {
+            //     response = await axios.post("http://localhost:5000/api/payme/create", {
+            //       amount: orderData.total_price,
+            //       orderId: orderData.id,
+            //     });
+            //     window.location.href = response.data.invoiceUrl;
           
-              } else if (isPayClicked === "click") {
-                response = await axios.post("http://localhost:5000/api/click/create", {
-                  amount: orderData.total_price,
-                  orderId: orderData.id,
-                });
-                window.location.href = response.data.paymentUrl;
+            //   } else if (isPayClicked === "click") {
+            //     response = await axios.post("http://localhost:5000/api/click/create", {
+            //       amount: orderData.total_price,
+            //       orderId: orderData.id,
+            //     });
+            //     window.location.href = response.data.paymentUrl;
           
-              } else if (isPayClicked === "uzumbank") {
-                response = await axios.post("http://localhost:5000/api/uzumbank/create", {
-                  amount: orderData.total_price,
-                  orderId: orderData.id,
-                });
-                window.location.href = response.data.paymentUrl;
-              }
+            //   } else if (isPayClicked === "uzumbank") {
+            //     response = await axios.post("http://localhost:5000/api/uzumbank/create", {
+            //       amount: orderData.total_price,
+            //       orderId: orderData.id,
+            //     });
+            //     window.location.href = response.data.paymentUrl;
+            //   }
           
-            } catch (err) {
-              console.error("Payment error:", err);
-              toast.error("To'lovga o'tishda xatolik yuz berdi!");
-            }
+            // } catch (err) {
+            //   console.error("Payment error:", err);
+            //   toast.error("To'lovga o'tishda xatolik yuz berdi!");
+            // }
           },          
         onError: (error) => {
             toast.error(`Xatolik yuz berdi!`);
@@ -155,9 +156,8 @@ export default function FinalForm() {
                         <p className='error-message'>{errors.street && errors.street.message}</p>
                     </div>
                 </div>
-                <div className='final-form-payment'>
+                {/* <div className='final-form-payment'>
                         <label className='region-title'>To'lov turini tanlang 💖</label>
-                        {/* Buttons act as selection for payment_type */}
                         <div className='final-form-payment-content'>
                             <button
                                 type='button'
@@ -192,7 +192,6 @@ export default function FinalForm() {
                                 <img className='pay-logo' src={assets.uzumbank} alt="Click" />
                             </button>
 
-                            {/* Register the field manually (no visible input needed) */}
                             <input
                                 type="hidden"
                                 {...register('payment_type', {
@@ -201,9 +200,10 @@ export default function FinalForm() {
                             />
                         </div>
                     {errors.payment_type && <p className="error">{errors.payment_type.message}</p>}
-                </div>
+                </div> */}
 
-                <button className={`check-btn ${!isPayClicked && `submit-button-on submit-button-off mb2`}`} disabled={isLoading || isSubmitting.current}>{isLoading ? "Yuborilmoqda" : "To'lovga o'tish"}</button>
+                {/* <button className={`check-btn ${!isPayClicked && `submit-button-on submit-button-off mb2`}`} disabled={isLoading || isSubmitting.current}>{isLoading ? "Yuborilmoqda" : "To'lovga o'tish"}</button> */}
+                <button className={`check-btn`} disabled={isLoading || isSubmitting.current}>{isLoading ? "Yuborilmoqda" : "To'lovga o'tish"}</button>
             </form>
             </div> 
         </div>       

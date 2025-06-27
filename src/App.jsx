@@ -6,6 +6,7 @@ import AppLayout from './ui/AppLayout';
 const Orders = lazy(() => import('./ui/Orders'));
 const OrderForm = lazy(() => import('./ui/OrderForm'));
 const Admin = lazy(() => import('./features/Admin/Dashboard/Admin'));
+const OrderSuccess = lazy(() => import('./ui/OrderSuccess'));
 import { CategoryProvider } from './context/CategoryContext';
 import { SearchProvider } from './context/SearchContext';
 import { OrdersSearchProvider } from './context/AdminOrdersSearchContext';
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
             },
 
         ]
+    },
+    {
+      path: '/orderSuccess',
+      element: <OrderSuccess />
     },
     {
         path: "/admin/login",

@@ -37,6 +37,8 @@ import home from '../assets/home.png'
 import menuBag from '../assets/menuBag.png'
 import noItem from '../assets/noItem.png'
 import korzina from '../assets/korzina.png'
+import orderSuccess from '../assets/orderSuccess.png'
+import goBack from '../assets/goBack.png'
 
 // Paying company logos
 import payme from '../assets/payme.png';
@@ -83,6 +85,8 @@ const assets = {
     menuBag,
     noItem,
     korzina,
+    orderSuccess,
+    goBack,
 }
 
 export default assets

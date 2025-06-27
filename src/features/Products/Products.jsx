@@ -15,6 +15,8 @@ export default function Products() {
         queryKey: ['products'],
         queryFn: getProducts,
     })
+
+    console.log(products);
     
     useEffect(() => {
         if(!searchValue) {
@@ -32,8 +34,7 @@ export default function Products() {
 
     return (
         <div className="product">
-            {/* {searchedProduct? searchedProduct.map((product) => { return <Item key={product.id} id={product.id} name={product.name} imgAddress={product.img1} description={product.description} rate={product.rate} price={product.price} discount={product.discount} />}) : products.map((product) => { return <Item key={product.id} id={product.id} name={product.name} imgAddress={product.img1} description={product.description} rate={product.rate} price={product.price} discount={product.discount} />})} */}
-            {searchedProducts? searchedProducts.map((product) => { return <Item key={product.id} id={product.id} name={product.name} images={product.product_images} description={product.description} rate={product.rate} price={product.fake_price} discount={product.price} />}) : products.map((product) => { return <Item key={product.id} id={product.id} name={product.name} images={product.product_images} description={product.description} rate={product.rate} price={product.price} discount={product.discount} /> })}
+            {searchedProducts? searchedProducts.map((product) => { return <Item key={product?.id} id={product?.id} name={product?.name} images={product?.product_images} description={product?.description} rate={product?.rate} price={product?.fake_price} discount={product?.price} />}) : products.map((product) => { return <Item key={product?.id} id={product?.id} name={product?.name} images={product?.product_images} description={product?.description} rate={product?.rate} price={product?.fake_price} discount={product?.price} /> })}
         </div>
     )
 }

@@ -96,7 +96,9 @@ function AdminOrderContent() {
             <div className="admin-order-address">
                 <h3 className="order-main-title">Buyurtma manzili ℹ️</h3>
                 <ul>
-                    <li><span className="payment-status">{currentOrder.payment_status === "To'langan" ? "To'langan" : "To'lanmagan"}</span> <span className={`${currentOrder.orders_status === "Tasdiqlangan" && 'success'} payment-status`}>{currentOrder.orders_status}</span></li>
+                    {/* <li><span className="payment-status">{currentOrder.payment_status === "To'langan" ? "To'langan" : "To'lanmagan"}</span> <span className={`${currentOrder.orders_status === "Tasdiqlangan" && 'success'} payment-status`}>{currentOrder.orders_status}</span></li> */}
+                    <li> <span className={`${currentOrder.orders_status === "Tasdiqlangan" && 'success'} payment-status`}>{currentOrder.orders_status}</span></li>
+                    <li className='user'> <span> ID: </span> {currentOrder.id} 🔢</li>
                     <li className='user'> <span> Ism Familya: </span> {currentOrder.fullname} 🙋‍♀️</li>
                     <li className='phone-number'> <span> Telefon raqami: </span> {currentOrder.phone_number} ☎️</li>
                     <li> <span> To'lov turi: </span> {currentOrder.payment_type} 💳</li>
@@ -105,7 +107,7 @@ function AdminOrderContent() {
                     <li> <span> Ko'cha nomi: </span> {currentOrder.street} 🏠</li>
                     <li className="mb1"> <span> Buyurtma qilingan sana: </span> {formatted} 🕒</li>
                     <li> <span> Hammasi: {totalPrice} 💵</span></li>
-                    <li className="order-li"><button className="confirm-order-btn" onClick={() => handleConfirm(currentOrder.id)}> Tasdiqlash </button> <button className="delete-order-btn" onClick={() => handleDelete(currentOrder.id)}> <span> O'chirish </span> </button></li>
+                    {currentOrder.orders_status === 'Tasdiqlangan' ? "" : <li className="order-li"><button className="confirm-order-btn" onClick={() => handleConfirm(currentOrder.id)}> Tasdiqlash </button><button className="delete-order-btn" onClick={() => handleDelete(currentOrder.id)}> <span> O'chirish </span> </button></li>}
                 </ul>
             </div>
         </div>
