@@ -62,7 +62,7 @@ const router = createBrowserRouter([
         element: <AdminLogin />
       },
       {
-        path: "/adminboard",
+        path: "adminboard",
         element: 
         // <PrivateRoute>
             <OrdersSearchProvider>
