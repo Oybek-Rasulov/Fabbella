@@ -129,6 +129,27 @@ button {
   color: #666;
 }
 
+.goBack {
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.goBack img {
+  width: 300px;
+  margin-bottom: 2rem;
+}
+
+.goBack a {
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding: 1rem 3rem;
+  border-radius: 5px;
+}
+
 /* Navbar */
 nav {
   max-width: 100%;
@@ -236,6 +257,7 @@ nav {
     justify-content: center;
     background-color: #ff66c4;
     padding: 1.2rem 0;
+    border-radius: 20px;
 }
 
 .category-content {
@@ -258,6 +280,7 @@ nav {
     border-radius: 50px;
     margin-bottom: 1rem;
     opacity: 0.9;
+    background-color: #fff;
 
 }
 

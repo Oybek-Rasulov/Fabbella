@@ -1,5 +1,6 @@
 import { Carousel } from 'antd';
-import { assets } from '../Category'
+import assets from '../../services/assets'
+
 
 export default function NormalCategory({ categoryValue }) {
     const contentStyle = {
@@ -23,11 +24,14 @@ export default function NormalCategory({ categoryValue }) {
         <div>
           <div className="category">
             <div style={contentStyle} className="category-content">
-              <button type='submit' onClick={ () => {handleCategory('Dress')}}><img src={assets.dress} alt="Dress" /><p style={categoryText}>Ko'ylaklar</p></button>
+              <button type='submit' onClick={ () => {handleCategory('All')}}><img src={assets.categoryIcon} alt="All" /><p style={categoryText}>Hammasi</p></button>
             </div>
             <div style={contentStyle} className="category-content">
-              <button type='submit' onClick={ () => {handleCategory('Makeup')}}><img src={assets.makeup} alt="Dress" /><p style={categoryText}>Makiaj olami</p></button>
+              <button type='submit' onClick={ () => {handleCategory('Dress')}}><img src={assets.dress} alt="Dress" /><p style={categoryText}>Ko'ylaklar</p></button>
             </div>
+            {/* <div style={contentStyle} className="category-content">
+              <button type='submit' onClick={ () => {handleCategory('Makeup')}}><img src={assets.makeup} alt="Dress" /><p style={categoryText}>Makiaj olami</p></button>
+            </div> */}
             <div style={contentStyle} className="category-content">
               <button type='submit' onClick={ () => {handleCategory('Pant')}}><img src={assets.pant} alt="Dress" /><p style={categoryText}>Shimlar</p></button>
             </div>
@@ -67,7 +71,7 @@ export default function NormalCategory({ categoryValue }) {
               <button type='submit' onClick={ () => {handleCategory('Shoes2')}}><img src={assets.shoes2} alt="Dress" /><p style={categoryText}>Krasovkalar</p></button>
             </div>
             <div style={contentStyle} className="category-content">
-              <button type='submit' onClick={ () => {handleCategory('Tshirt')}}><img src={assets.tshirt} alt="Dress" /><p style={categoryText}>Futbolkalar</p></button>
+              <button type='submit' onClick={ () => {handleCategory('T-shirt')}}><img src={assets.tshirt} alt="Dress" /><p style={categoryText}>Futbolkalar</p></button>
             </div>
           </div>
         </div>

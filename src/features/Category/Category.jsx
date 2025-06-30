@@ -1,27 +1,44 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios';
-import assets from '../assets';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useCategory } from '../../context/CategoryContext';
-// Components
+import { useQuery } from '@tanstack/react-query';
+import { getProducts } from '../../services/apiProducts';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getCategoryValue } from '../Products/productSlice';
 import ResponsiveCategory from './ReasponsivCategory';
 import NormalCategory from './NormalCategory';
+import Loader from '../../ui/Loader';
 
-export {assets};
-export default function Category () {
-    const matches = useMediaQuery('(max-width:900px)');
-    const {getCategory} = useCategory()
+export default function Category() {
+  const matches = useMediaQuery('(max-width:900px)');
+  const dispatch = useDispatch();
 
-    // Setting value of category
-    function categoryValue(value) {
-        getCategory(value)
+  const { data: products, isLoading } = useQuery({
+    queryKey: ['products'],
+    queryFn: getProducts,
+  });
+
+  // ✅ Automatically show all products on first load
+  useEffect(() => {
+    if (products && products.length > 0) {
+      dispatch(getCategoryValue({ category: 'All', products }));
     }
+  }, [products, dispatch]);
 
-    return (
-      <>
-        {matches ? <ResponsiveCategory categoryValue={categoryValue} /> : <NormalCategory categoryValue={categoryValue} />} 
-      </>
-    )
-    };
+  // ✅ Called when a category is selected
+  function categoryValue(value) {
+    if (isLoading || !products) return;
+    dispatch(getCategoryValue({ category: value, products }));
+  }
 
+  if (isLoading) return <Loader />;
 
+  return (
+    <>
+      {matches ? (
+        <ResponsiveCategory categoryValue={categoryValue} />
+      ) : (
+        <NormalCategory categoryValue={categoryValue} />
+      )}
+    </>
+  );
+}

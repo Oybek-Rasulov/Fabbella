@@ -1,5 +1,5 @@
 import { Carousel } from 'antd';
-import { assets } from '../Category';
+import assets from '../../services/assets'
 
 export default function ResponsiveCategory({categoryValue}) {
     const contentStyle = {
@@ -16,12 +16,15 @@ export default function ResponsiveCategory({categoryValue}) {
       <Carousel arrows infinite={true} autoplay autoplaySpeed={2000}>
           <div>
             <div className="category">
+            <div style={contentStyle} className="category-content">
+              <button type='submit' onClick={ () => {handleCategory('All')}}><img src={assets.categoryIcon} alt="All" /><p>Hammasi</p></button>
+            </div>
               <div style={contentStyle} className="category-content">
                 <button type='submit' onClick={ () => {handleCategory('Dress')}}><img src={assets.dress} alt="Dress" /><p>Ko'ylaklar</p></button>
               </div>
-              <div style={contentStyle} className="category-content">
+              {/* <div style={contentStyle} className="category-content">
                 <button type='submit' onClick={ () => {handleCategory('Makeup')}}><img src={assets.makeup} alt="Dress" /><p>Makiaj olami</p></button>
-              </div>
+              </div> */}
               <div style={contentStyle} className="category-content">
                 <button type='submit' onClick={ () => {handleCategory('Pant')}}><img src={assets.pant} alt="Dress" /><p>Shimlar</p></button>
               </div>
