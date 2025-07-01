@@ -87,10 +87,10 @@ export async function deleteOrder(orderId) {
 }
 
 // Update order
-export async function confirmOrder(orderId) {
+export async function confirmOrder({ orderId, value }) {
     const { error } = await supabase
     .from('orders_address')
-    .update({ orders_status: "Tasdiqlangan" })
+    .update({ orders_status: value })
     .eq('id', orderId)
     .select()
         

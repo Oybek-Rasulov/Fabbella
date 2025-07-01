@@ -64,13 +64,21 @@ function AdminOrdersList() {
                     setBtnClass("all")
                 }}>Barchasi</button>
                 <button className={btnClass === 'confirmed' ? btnClass : ""} onClick={() => {
-                    handleConfirmed('Tasdiqlangan')
+                    handleConfirmed('Qabul qilingan')
                     setBtnClass('confirmed')
-                    }}>Tasdiqlangan</button>
+                    }}>Qabul qilinganlar</button>
                 <button className={btnClass === 'notConfirmed' ? btnClass : ""} onClick={() => {
-                    handleConfirmed('Tasdiqlanmagan')
+                    handleConfirmed('Qabul qilinmagan')
                     setBtnClass('notConfirmed')
-                    }}>Tasdiqlanmagan</button>
+                    }}>Qabul qilinmaganlar</button>
+                <button className={btnClass === 'delivering' ? btnClass : ""} onClick={() => {
+                    handleConfirmed('Yetkazilmoqda')
+                    setBtnClass('delivering')
+                    }}>Yetkazilmoqda</button>
+                <button className={btnClass === 'delivered' ? btnClass : ""} onClick={() => {
+                    handleConfirmed('Yetkazildi')
+                    setBtnClass('delivered')
+                    }}>Yetkazilganlar</button>
             </div>
 
             {filteredOrders.length > 0 ? (

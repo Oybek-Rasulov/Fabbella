@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   products: [],
-  isLoading: false, // not used right now, but could be useful if you fetch via Redux
+  isLoading: false,
 };
 
 const productsSlice = createSlice({

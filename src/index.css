@@ -89,6 +89,17 @@ button {
 
 .success {
   background-color: var(--success-color) !important;
+  color: #fff;
+}
+
+.warning {
+  background-color: #FFB200 !important;
+  color: #fff;
+}
+
+.danger {
+  background-color: #E52020 !important;
+  color: #fff;
 }
 
 .error-message {
@@ -1644,7 +1655,7 @@ option {
 
 .admin-orders-filter {
   display: flex;
-  width: 386px;
+  width: 726px;
   gap: 0.5rem;
   align-items: center;
   background-color: #fcfcfc;
@@ -1669,6 +1680,18 @@ option {
 
 }
 .admin-orders-filter .notConfirmed {
+  background-color: var(--secondary-color);
+  color: #fff;
+
+}
+
+.admin-orders-filter .delivered {
+  background-color: var(--secondary-color);
+  color: #fff;
+
+}
+
+.admin-orders-filter .delivering {
   background-color: var(--secondary-color);
   color: #fff;
 

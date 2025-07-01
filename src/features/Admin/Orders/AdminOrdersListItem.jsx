@@ -14,7 +14,7 @@ function AdminOrdersListItem({id, image, phone, orderStatus, date}) {
                         </div>
                         <div className='admin-orders-content'> 
                             <p className='admin-orders-phone'><CallIcon /> {phone} </p>
-                            <p className={`${orderStatus === 'Tasdiqlangan' ? 'success order-confirmation' : "order-confirmation"}`}>{orderStatus}</p>
+                            <p className={`${orderStatus === 'Qabul qilinmagan' ? "order-confirmation" : 'success order-confirmation'}`}>{orderStatus}</p>
                         </div>
                         <span className='admin-order-date'>{formatted}</span>
                     </div>

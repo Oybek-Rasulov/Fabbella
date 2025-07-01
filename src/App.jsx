@@ -69,8 +69,8 @@ const router = createBrowserRouter([
               <ProductsSearchProvider>
                 <AdminLayout />
               </ProductsSearchProvider>
-            </OrdersSearchProvider>,
-        // </PrivateRoute>,
+            </OrdersSearchProvider>
+        </PrivateRoute>,
         errorElement: <Error />,
         children: [
           {
@@ -116,15 +116,4 @@ const router = createBrowserRouter([
 export default function App() {
 
     return <RouterProvider router={router} />
-        // <>
-        //                                         <Route path='/' element={ <Home /> } />
-        //                             <Route path='/selection/:id' element={ <Select /> } />
-        //                             <Route path='/orders' element={ <Orders /> } />
-        //                             <Route path='/finalOrder' element={<FinalOrder />} />
-        //                             <Route path='/adminLogin' element={<AdminLogin />} />
-        //                             <Route element={<ProtectedRoute />}>
-        //                                 <Route path="/adminPanel" element={<Admin />} />
-        //                                 <Route path='/allProducts' element={<AdminAllProducts />} />
-        //                             </Route>
-        // </>
 }

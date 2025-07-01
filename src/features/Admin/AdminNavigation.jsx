@@ -14,7 +14,7 @@ function AdminNavigation() {
   async function handleLogout() {
     try {
       await logout();
-      navigate('/admin/login'); // Redirect to login page
+      navigate('/admin/login');
     } catch (err) {
       console.error('Logout error:', err.message);
     }
