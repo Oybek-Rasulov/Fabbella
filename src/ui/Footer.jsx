@@ -11,7 +11,7 @@ export default function Footer() {
                 </div>
                 <Link href="/contact">
                     <img src={assets.telephone} alt="telephone" />
-                    <p>+9989 91 401 47 66</p>
+                    <p>+998 50 998 88 66</p>
                 </Link>
                 <Link href="/contact">
                     <img src={assets.map} alt="Map" />
