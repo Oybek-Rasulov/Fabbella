@@ -82,6 +82,10 @@ button {
   margin-right: 0.5rem;
 }
 
+.ml1 {
+  margin-left: 1rem !important;
+}
+
 .error {
   color: rgb(244, 59, 59);
   font-size: 0.9rem;

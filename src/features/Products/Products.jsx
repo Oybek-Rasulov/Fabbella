@@ -1,5 +1,5 @@
 import assets from "../../services/assets";
-import Item from './product/item';
+import Item from './product/Item';
 import Loader from "../../ui/Loader";
 import { useSearch } from "../../context/SearchContext";
 import { useEffect, useState } from 'react';

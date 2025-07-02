@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getProducts } from "../services/apiProducts";
 import Loader from './Loader';
 import Error from './Error';
+import RelatedProduct from './RelatedProduct';
 
 export default function Select() {
   const [selectedProduct, setSelectedProduct] = useState({});
@@ -37,17 +38,16 @@ export default function Select() {
 
   const takeShowImage = (img) => setShowImage(img);
 
+  if(isLoading) return <Loader />
+  if(isError) return <Error errorMessage="Ma'lumotlar yuklanmadi ☹️" />
+
   return (
     <>
-      {isLoading && <Loader />}
-      {isError && <Error errorMessage="Ma'lumotlar yuklanmadi ☹️" />}
-
-      {!isLoading && !isError && (
         <div className="select">
           <Image selectedImages={selectedProduct.product_images} showImage={showImage} />
           <Form selectedProduct={selectedProduct} takeShowImage={takeShowImage} />
         </div>
-      )}
+        <RelatedProduct category={selectedProduct.product_type} />
     </>
   );
 }

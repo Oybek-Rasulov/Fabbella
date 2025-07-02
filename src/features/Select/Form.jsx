@@ -11,8 +11,6 @@ export default function Form({ selectedProduct }) {
     const [ isSizeSelected, setIsSizeSelected ] = useState(true);
     const [ quantity, setQuantity ] = useState(1)
 
-    console.log(selectedProduct)
-
     // Storing Size 
     const takeSize = (value) => {
         setSize(value);

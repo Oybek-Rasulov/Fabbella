@@ -1,24 +1,47 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Item from '../components/Home/product/item'
+import Item from '../features/Products/product/Item';
+import { getProducts } from '../services/apiProducts';
+import { useQuery } from '@tanstack/react-query';
+import Loader from './Loader';
+import Error from './Error';
+import Title from './Title';
 
-export function RelatedProduct({ category }) {
+export default function RelatedProduct({ category }) {
     const [relatedProduct, setRelatedProduct] = useState([]);
 
-    async function relatedProductSubmit() {
-        await axios.post("http://localhost:3001/relatedProduct", {category})
-            .then(res => setRelatedProduct(res.data))
-            .catch(err => console.log(err))
-    }
-
+    const { data: products, isLoading, isError } = useQuery({
+        queryKey: ['products'],
+        queryFn: () => getProducts(),
+    })
+    
     useEffect(() => {
-        relatedProductSubmit()
+        async function handleRelatedProduct() {
+            if(!category) return;
+
+            const relatedProducts = products.filter((product) => product.product_type === category )
+            setRelatedProduct(relatedProducts)
+        }  
+
+        handleRelatedProduct()
     }, [category])
+
+    if(isLoading) return <Loader />
+    if(isError) return <Error errorMessage={isError.message} />
 
     return (
         <> 
+                <Title title="Shunga oid" className='ml1' />
             <div className='product container'>
-                {relatedProduct.map((product) => { return <Item key={product.id} id={product.id} name={product.name} imgAddress={product.img1} description={product.description} rate1={product.rate1} rate2={product.rate2} rate3={product.rate3} rate4={product.rate4} rate5={product.rate5} price={product.price} discount={product.discount} />})}
+                {relatedProduct.map((product) => { return <Item
+                    key={product?.id}
+                    id={product?.id}
+                    name={product?.name}
+                    images={product?.product_images}
+                    description={product?.description}
+                    rate={product?.rate}
+                    price={product?.fake_price}
+                    discount={product?.price}
+                />})}
             </div>
         </>
     )
