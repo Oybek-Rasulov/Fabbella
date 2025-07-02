@@ -31,7 +31,7 @@ export default function RelatedProduct({ category }) {
     return (
         <> 
             <Title title="Shunga oid" />
-            <div className='product container'>
+            <div className='product'>
                 {relatedProduct.map((product) => { return <Item
                     key={product?.id}
                     id={product?.id}
